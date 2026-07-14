@@ -42,8 +42,8 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            height: 100vh; 
-            overflow: hidden;
+            overflow-x: hidden;
+            overflow-y: auto;
             pointer-events: none;
             animation: unlockInteractions 0s linear 1.7s forwards, waveBackground 30s ease-in-out 1.7s infinite;
         }
@@ -129,10 +129,10 @@
             width: 100%;
             max-width: 1240px; 
             flex: 1;
-            padding: 15px 20px;
+            padding: 40px 20px;
             justify-content: center;
             align-content: center;
-            margin: 0 auto;
+            margin: auto auto;
             gap: 20px; 
         }
 
@@ -142,12 +142,12 @@
             border-radius: 24px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             width: 100%;
-            max-width: 400px; 
             display: flex;
             flex-direction: column;
             justify-content: flex-start; 
             text-align: center;
             backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: none;
             animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
@@ -157,6 +157,7 @@
             flex-direction: column;
             gap: 10px;
             margin-top: auto; 
+            padding-top: 15px;
         }
 
         .specs-list {
@@ -194,6 +195,7 @@
             font-size: 14px;
             margin-top: auto; 
             margin-bottom: 8px;
+            padding-top: 15px;
             font-weight: 700;
             color: #bfaeb8;
             animation: fadeInUp 0.6s ease 1.0s forwards;
@@ -332,6 +334,7 @@
             font-size: 13px;
             color: #bfaeb8;
             margin-top: auto;
+            padding-top: 15px;
             cursor: default;
             animation: fadeInUp 0.6s ease 1.0s forwards;
             user-select: none;
@@ -365,7 +368,7 @@
         }
 
         .modal-content {
-            max-width: 85%;
+            max-width: 90%;
             max-height: 85%;
             object-fit: contain;
             border-radius: 16px;
@@ -381,8 +384,8 @@
 
         .modal-close {
             position: absolute;
-            top: 25px;
-            right: 30px;
+            top: 20px;
+            right: 20px;
             background: none;
             border: none;
             color: #ffffff;
@@ -404,13 +407,14 @@
             width: 100%;
             background-color: var(--footer-bg);
             border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 10px 30px;
+            padding: 15px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             min-height: 70px;
             box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
             animation: fadeIn 1s ease 1.2s forwards;
+            margin-top: auto;
         }
 
         .footer-text {
@@ -422,9 +426,9 @@
         }
 
         .bottom-logo {
-            max-height: 60px;
+            max-height: 50px;
             width: auto;
-            max-width: 200px;
+            max-width: 180px;
             object-fit: contain;
             display: block;
             opacity: 0.8;
@@ -441,35 +445,44 @@
             opacity: 1;
         }
 
-        @media (max-width: 992px) {
-            body {
-                height: auto;          
-                overflow-y: auto;      
-            }
+        @media (max-width: 1100px) {
             .page-wrapper {
-                grid-template-columns: 1fr; 
-                justify-content: flex-start;
-                padding-top: 30px;
-                padding-bottom: 20px;
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 850px;
+                padding: 30px 20px;
             }
-            .container {
-                max-width: 100%;
+            .container:nth-child(3) {
+                grid-column: span 2;
+            }
+            .works-gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-wrapper {
+                grid-template-columns: 1fr;
+                max-width: 480px;
+                padding: 20px 15px;
+            }
+            .container:nth-child(3) {
+                grid-column: span 1;
+            }
+            .works-gallery {
+                grid-template-columns: repeat(2, 1fr);
             }
             .work-img {
-                height: 140px; 
-            }
-            .laptop-title {
-                margin-top: 15px; 
+                height: 110px;
             }
             .footer {
-                flex-direction: column; 
-                gap: 10px;
-                padding: 15px;
+                flex-direction: column;
+                gap: 15px;
                 text-align: center;
+                padding: 20px;
             }
             .modal-close {
                 top: 15px;
-                right: 20px;
+                right: 15px;
                 font-size: 36px;
             }
         }
@@ -498,7 +511,7 @@
         </div>
 
         <div class="container">
-            <h1 class="animated-item" style="margin-top: 15px;">Характеристики моего ПК:</h1>
+            <h1 class="animated-item">Характеристики моего ПК:</h1>
             
             <div class="specs-list">
                 <div class="spec-item animated-item">
@@ -526,7 +539,7 @@
         </div>
 
         <div class="container">
-            <h1 class="animated-item" style="margin-top: 15px;">Примеры моих работ:</h1>
+            <h1 class="animated-item">Примеры моих работ:</h1>
             
             <div class="works-gallery">
                 <img class="work-img animated-item" src="work1.png" alt="Работа 1">
